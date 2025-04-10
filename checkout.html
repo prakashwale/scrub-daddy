@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Scrub Daddy</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="images/scrub-daddy-logo.svg" alt="Scrub Daddy Official Logo - The Original Smiling Sponge" class="logo">
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="buy_scrub_daddy.html">Shop Now</a>
+                <a href="scrub_daddy_story.html">About Us</a>
+                <a href="contact_scrub_daddy_support.html">Contact</a>
+                <a href="scrub_daddy_hacks.html" >Cleaning Hacks</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="checkout-container">
+            <div class="checkout-grid">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="cart-items">
+                        <div class="cart-item">
+                            <img src="images/scrub-daddy-original.png" alt="Scrub Daddy Original">
+                            <div class="cart-item-details">
+                                <h3>Original Scrub Daddy</h3>
+                                <p class="price">$4.99</p>
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus">-</button>
+                                    <span class="quantity">1</span>
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-totals">
+                        <div class="subtotal">
+                            <span>Subtotal</span>
+                            <span>$4.99</span>
+                        </div>
+                        <div class="shipping">
+                            <span>Shipping</span>
+                            <span>Free</span>
+                        </div>
+                        <div class="tax">
+                            <span>Tax</span>
+                            <span>$0.50</span>
+                        </div>
+                        <div class="total">
+                            <span>Total</span>
+                            <span>$5.49</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <h2>Shipping Information</h2>
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP Code</label>
+                                <input type="text" id="zip" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card">Card Number</label>
+                            <input type="text" id="card" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="place-order-btn">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@scrubdaddy.com</p>
+                <p>Phone: 1-877-SCRUB-DADDY</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ScrubDaddyCA/" aria-label="Facebook">Facebook</a>
+                    <a href="https://www.instagram.com/scrubdaddy/?hl=en" aria-label="Instagram">Instagram</a>
+                    <a href="https://x.com" aria-label="Twitter">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Scrub Daddy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html> 
