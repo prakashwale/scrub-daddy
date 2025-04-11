@@ -1,31 +1,45 @@
 document.addEventListener('DOMContentLoaded', function() {
     const faqContainer = document.querySelector('.faq-container');
     const faqCards = document.querySelectorAll('.faq-card');
-    const prevBtn = document.querySelector('.faq-nav .prev');
-    const nextBtn = document.querySelector('.faq-nav .next');
+    const prevBtn = document.getElementById('prevFaq');
+    const nextBtn = document.getElementById('nextFaq');
+    const counter = document.querySelector('.faq-counter');
     let currentIndex = 0;
 
     function updateFAQDisplay() {
         faqCards.forEach((card, index) => {
             if (index === currentIndex) {
-                card.classList.add('active');
+                card.style.display = 'block';
             } else {
-                card.classList.remove('active');
+                card.style.display = 'none';
             }
         });
+
+        // Update counter
+        counter.textContent = `${currentIndex + 1} of ${faqCards.length}`;
+
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === faqCards.length - 1;
     }
 
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + faqCards.length) % faqCards.length;
-            updateFAQDisplay();
-        });
+    // Initialize FAQ display
+    updateFAQDisplay();
 
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % faqCards.length;
+    // Add click event listeners for navigation buttons
+    prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
             updateFAQDisplay();
-        });
-    }
+        }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        if (currentIndex < faqCards.length - 1) {
+            currentIndex++;
+            updateFAQDisplay();
+        }
+    });
 
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
