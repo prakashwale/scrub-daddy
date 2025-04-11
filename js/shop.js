@@ -537,20 +537,4 @@ clickAnimationStyle.textContent = `
         transition: transform 0.1s ease, opacity 0.1s ease;
     }
 `;
-document.head.appendChild(clickAnimationStyle);
-
-function initializeFilters() {
-    const filterButtonsContainer = document.querySelector('.filter-buttons-container');
-    const applyButton = document.querySelector('.apply-filters');
-    
-    if (!filterButtonsContainer || !applyButton) return;
-    
-    const resetButton = document.createElement('button');
-    resetButton.className = 'reset-filters';
-    resetButton.textContent = 'Reset Filters';
-    
-    filterButtonsContainer.appendChild(resetButton);
-    
-    applyButton.addEventListener('click', applyFilters);
-    resetButton.addEventListener('click', resetFilters);
-} 
+document.head.appendChild(clickAnimationStyle); 
