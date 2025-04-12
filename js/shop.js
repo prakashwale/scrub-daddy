@@ -429,42 +429,6 @@ function openModal(productName) {
     }
 }
 
-// // Bulk Order Modal functionality
-// document.addEventListener('DOMContentLoaded', () => {
-//     const bulkOrderBtn = document.getElementById('bulkOrderBtn');
-//     const bulkOrderModal = document.getElementById('bulkOrderModal');
-//     const closeBulkModal = bulkOrderModal.querySelector('.close-modal');
-
-//     // Open bulk order modal
-//     bulkOrderBtn.addEventListener('click', (e) => {
-//         e.preventDefault();
-//         bulkOrderModal.classList.add('active');
-//         document.body.style.overflow = 'hidden';
-//     });
-
-//     // Close bulk order modal
-//     closeBulkModal.addEventListener('click', () => {
-//         bulkOrderModal.classList.remove('active');
-//         document.body.style.overflow = 'auto';
-//     });
-
-//     // Close bulk order modal when clicking outside
-//     bulkOrderModal.addEventListener('click', (e) => {
-//         if (e.target === bulkOrderModal) {
-//             bulkOrderModal.classList.remove('active');
-//             document.body.style.overflow = 'auto';
-//         }
-//     });
-
-//     // Close bulk order modal with Escape key
-//     document.addEventListener('keydown', (e) => {
-//         if (e.key === 'Escape' && bulkOrderModal.classList.contains('active')) {
-//             bulkOrderModal.classList.remove('active');
-//             document.body.style.overflow = 'auto';
-//         }
-//     });
-// });
-
 // Add event listener for checkout button with immediate visual feedback
 document.querySelector('.checkout-button').addEventListener('click', function(e) {
     // Add immediate visual feedback
