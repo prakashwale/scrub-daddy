@@ -3,6 +3,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     const body = document.body;
 
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+            });
+        });
+    }
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+    });
+
     const cards = document.querySelectorAll('.hack-card, .stain-card, .room-card, .care-card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {

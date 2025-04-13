@@ -401,6 +401,52 @@ const productInfo = {
     }
 };
 
+// Add info buttons to all product cards
+document.querySelectorAll('.product-card').forEach(card => {
+    const productName = card.querySelector('h3').textContent;
+    const infoButton = card.querySelector('.info-button');
+    
+    infoButton.addEventListener('click', () => {
+        const info = productInfo[productName];
+        if (info) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            const modalBody = document.querySelector('.modal-body');
+            modalBody.innerHTML = `
+                <h3>${productName}</h3>
+                <div class="info-section">
+                    <h4>Recommended Uses</h4>
+                    <ul>
+                        ${info.recommendedUses.map(use => `<li>${use}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h4>Surface Compatibility</h4>
+                    <ul>
+                        ${info.surfaceCompatibility.map(surface => `<li>${surface}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h4>Care Instructions</h4>
+                    <ul>
+                        ${info.careInstructions.map(instruction => `<li>${instruction}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+    });
+});
+
+// Bulk Tips Section
+const bulkTipsToggle = document.querySelector('.bulk-tips-toggle');
+const bulkTipsContent = document.querySelector('.bulk-tips-content');
+
+bulkTipsToggle.addEventListener('click', () => {
+    bulkTipsContent.classList.toggle('active');
+    const isExpanded = bulkTipsContent.classList.contains('active');
+    bulkTipsToggle.setAttribute('aria-expanded', isExpanded);
+});
+
 // Update the openModal function
 function openModal(productName) {
     const modalBody = document.querySelector('.modal-body');
@@ -428,6 +474,42 @@ function openModal(productName) {
         document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
     }
 }
+
+// Bulk Order Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const bulkOrderBtn = document.getElementById('bulkOrderBtn');
+    const bulkOrderModal = document.getElementById('bulkOrderModal');
+    const closeBulkModal = bulkOrderModal.querySelector('.close-modal');
+
+    // Open bulk order modal
+    bulkOrderBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        bulkOrderModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Close bulk order modal
+    closeBulkModal.addEventListener('click', () => {
+        bulkOrderModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Close bulk order modal when clicking outside
+    bulkOrderModal.addEventListener('click', (e) => {
+        if (e.target === bulkOrderModal) {
+            bulkOrderModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close bulk order modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && bulkOrderModal.classList.contains('active')) {
+            bulkOrderModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
 
 // Add event listener for checkout button with immediate visual feedback
 document.querySelector('.checkout-button').addEventListener('click', function(e) {
