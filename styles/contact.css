@@ -180,12 +180,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
-    display: none; /* Hide all cards by default */
-    height: 300px; /* Fixed height for all cards */
+    display: none; 
+    height: 300px; 
 }
 
 .faq-card.active {
-    display: block; /* Show only active card */
+    display: block; 
 }
 
 .faq-question {
@@ -195,7 +195,7 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    height: 80px; /* Fixed height for question section */
+    height: 80px;
 }
 
 .faq-question h3 {
@@ -206,9 +206,9 @@
 
 .faq-answer {
     padding: 1.5rem;
-    display: block; /* Always show answer for active card */
-    height: calc(100% - 80px); /* Remaining height for answer section */
-    overflow-y: auto; /* Allow scrolling if content is too long */
+    display: block;
+    height: calc(100% - 80px); 
+    overflow-y: auto; 
 }
 
 .faq-answer p {
@@ -610,7 +610,7 @@
     }
     
     .contact-method-card h3 {
-        min-height: auto; /* Allow natural height on smaller screens */
+        min-height: auto;
     }
     
     .support-features {
